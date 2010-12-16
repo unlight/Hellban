@@ -3,7 +3,7 @@
 $PluginInfo['Hellban'] = array(
 	'Name' => 'Hellban',
 	'Description' => "A ban that lets the user continue viewing posts and making posts, but that makes it so no other message board users can see the banned user's posts.",
-	'Version' => '1.0.beta',
+	'Version' => '0.8.alpha',
 	'Date' => '13 Dec 2010',
 	'Author' => '',
 	'AuthorEmail' => '',
@@ -25,19 +25,20 @@ Every time the user tries to load a page, he is greeted with a fake apache serve
 False: disabled
 0 < FLOAT < 1: Chance to see error
 
+KNOWN BUGS:
+Incorrect count comments for discussions
+
 TODO:
 Highlight discussion
 Highlight comment
 
 TODO (Config):
-$Configuration['Plugins']['Hellban']['SlowDownUser'] = False;
+$Configuration['Plugins']['Hellban']['SlowDownUser'] = False; // by exp.
 $Configuration['Plugins']['Hellban']['ServerError'] = 'X minutes';
 $Configuration['Plugins']['Hellban']['CommentsGuestsView'] = False;
 $Configuration['Plugins']['Hellban']['DiscussionsGuestsView'] = False;
 
-
 ========================================================================= */
-
 
 class HellbanPlugin implements Gdn_IPlugin {
 	
@@ -46,6 +47,15 @@ class HellbanPlugin implements Gdn_IPlugin {
 	public function __construct() {
 		$this->Configuration = C('Plugins.Hellban');
 	}
+	
+/*	public function Base_All_Handler() {
+		C('Plugins.Hellban.SlowDownUser');
+		static $SleepTime;
+		if (is_null($SleepTime)) $SleepTime = 800; // TODO: Config?
+		else $SleepTime /= M_E;
+		d();d($SleepTime * 1000);
+		usleep($SleepTime * 1000);
+	}*/
 	
 	public static $StatusCodes = array(
 		400 => 'Bad Request',
