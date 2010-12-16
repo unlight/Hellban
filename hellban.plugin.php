@@ -156,7 +156,7 @@ class HellbanPlugin implements Gdn_IPlugin {
 			$SideMenu =& $Profile->EventArguments['SideMenu'];
 			$Url = '/profile/hellban/'.$Profile->User->UserID;
 			$HellbanText = ($Profile->User->Hellbanned) ? T('UnHellban %1$s') : T('Hellban %1$s!');
-			$SideMenu->AddLink('Options', sprintf($HellbanText, ($Profile->User->Gender == 'm') ? 'him' : 'her'), $Url, 'Garden.Users.Edit', array('class' => 'HellbanButton'));
+			$SideMenu->AddLink('Options', sprintf($HellbanText, ($Profile->User->Gender == 'f') ? 'her' : 'him'), $Url, 'Garden.Users.Edit', array('class' => 'HellbanButton'));
 		}
 	}
 	
