@@ -11,7 +11,7 @@ $PluginInfo['Hellban'] = array(
 	'RequiredApplications' => False,
 	'RequiredTheme' => False, 
 	'RequiredPlugins' => False,
-	'RegisterPermissions' => False,
+	'RegisterPermissions' => array('Plugins.Hellbanned.Comments.View', 'Plugins.Hellbanned.Discussions.View'),
 	'SettingsPermission' => False,
 	'License' => 'X.Net License'
 );
@@ -34,10 +34,6 @@ $Configuration['Plugins']['Hellban']['SlowDownUser'] = False;
 $Configuration['Plugins']['Hellban']['ServerError'] = 'X minutes';
 $Configuration['Plugins']['Hellban']['CommentsGuestsView'] = False;
 $Configuration['Plugins']['Hellban']['DiscussionsGuestsView'] = False;
-
-TODO (Permission)
-Plugins.Hellbanned.Comments.View
-Plugins.Hellbanned.Discussions.View
 
 
 ========================================================================= */
